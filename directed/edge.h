@@ -12,7 +12,10 @@ namespace ggraph
 		Edge(std::shared_ptr<Node> in, std::shared_ptr<Node> out_);
 		~Edge();
 
-		std::shared_ptr<Node> in_;
-		std::shared_ptr<Node> out_;
+		int GetOutId();
+		int GetInId();
+
+		std::weak_ptr<Node> in_;
+		std::weak_ptr<Node> out_;
 	};
 }

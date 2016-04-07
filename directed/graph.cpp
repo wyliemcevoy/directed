@@ -32,8 +32,8 @@ namespace ggraph {
 	{
 		if (ContainsNode(out) && ContainsNode(in))
 		{
-			// test to make sure the edge doesn't already exist
 
+			// this should probably be references instead of making new shared pointers
 			std::shared_ptr<Node> in_ptr = get_node(in);
 			std::shared_ptr<Node> out_ptr = get_node(out);
 
@@ -54,6 +54,17 @@ namespace ggraph {
 
 	bool Graph::RemoveEdge(int out, int in)
 	{
+		if (ContainsNode(out) && ContainsNode(in))
+		{
+			std::shared_ptr<Node> in_ptr = get_node(in);
+			std::shared_ptr<Node> out_ptr = get_node(out);
+
+			in_ptr->RemoveEdgesComingFrom(out);
+			out_ptr->RemoveEdgesGoingTo(in);
+			
+			return true;
+		}
+
 		return false;
 	}
 

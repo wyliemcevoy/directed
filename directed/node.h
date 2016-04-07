@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <memory>
+#include <algorithm>
 #include "edge.h"
 
 class Edge;
@@ -20,7 +21,8 @@ namespace ggraph
 		int get_id() { return id_; }
 		bool ContainsEdgeOutTo(int id);
 		bool ContainsEdgeInFrom(int id);
-
+		void RemoveEdgesGoingTo(int id);
+		void RemoveEdgesComingFrom(int id);
 
 
 		int incoming_size() { return incoming_.size(); }
