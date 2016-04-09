@@ -31,6 +31,7 @@ int main()
 
 	graph.RemoveEdge(1, 2);
 
+
 	std::cout << std::boolalpha << node_ptr->ContainsEdgeInFrom(2) << " has an edge to 2." << std::endl;
 	std::cout << std::boolalpha << node_ptr->ContainsEdgeOutTo(2) << " has an edge from 2." << std::endl;
 
