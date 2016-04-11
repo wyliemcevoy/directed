@@ -3,7 +3,7 @@
 #include "node.h"
 
 
-namespace ggraph {
+namespace directed {
 
 	Edge::Edge(std::shared_ptr<Node> in, std::shared_ptr<Node> out) :
 		in_(in), out_(out)
@@ -16,6 +16,34 @@ namespace ggraph {
 	{
 	}
 
+	std::shared_ptr<Node> Edge::GetOut()
+	{
+		try
+		{
+			std::shared_ptr<Node> out_p = out_.lock();
+			return out_p;
+		}
+		catch (std::bad_weak_ptr e)
+		{
+			// Handle invalid edge.
+			return nullptr;
+		}
+	}
+
+	std::shared_ptr<Node> Edge::GetIn()
+	{
+		try
+		{
+			std::shared_ptr<Node> in_p = in_.lock();
+			return in_p;
+		}
+		catch (std::bad_weak_ptr e)
+		{
+			// Handle invalid edge.
+			return nullptr;
+		}
+	}
+
 	int Edge::GetOutId()
 	{
 		try
@@ -26,8 +54,8 @@ namespace ggraph {
 		catch (std::bad_weak_ptr e)
 		{
 			// Handle invalid edge.
+			return 0;
 		}
-		return 0;
 	}
 
 	int Edge::GetInId()
@@ -40,8 +68,7 @@ namespace ggraph {
 		catch (std::bad_weak_ptr e)
 		{
 			// Handle invalid edge.
-		}
 		return 0;
+		}
 	}
-
 }

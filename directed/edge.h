@@ -2,7 +2,7 @@
 
 #include <memory>
 
-namespace ggraph
+namespace directed
 {
 	class Node;
 
@@ -11,6 +11,10 @@ namespace ggraph
 	public:
 		Edge(std::shared_ptr<Node> in, std::shared_ptr<Node> out_);
 		~Edge();
+
+		std::shared_ptr<Node> GetOut();
+		std::shared_ptr<Node> GetIn();
+
 
 		int GetOutId();
 		int GetInId();

@@ -4,7 +4,7 @@
 #include <memory>
 
 
-namespace ggraph {
+namespace directed {
 
 	Graph::Graph()
 	{
@@ -49,7 +49,16 @@ namespace ggraph {
 
 	bool Graph::RemoveNode(int id)
 	{
-		return false;
+		if (ContainsNode(id))
+		{
+			std::shared_ptr<Node> to_be_removed = get_node(id);
+			to_be_removed->RemoveAllEdges();
+			nodes_.erase(id);
+
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	bool Graph::RemoveEdge(int out, int in)

@@ -4,7 +4,7 @@
 #include "node.h"
 
 
-namespace ggraph
+namespace directed
 {
 	class Graph
 	{

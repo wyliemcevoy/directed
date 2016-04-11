@@ -7,7 +7,7 @@
 
 class Edge;
 
-namespace ggraph
+namespace directed
 {
 
 	class Node
@@ -23,7 +23,7 @@ namespace ggraph
 		bool ContainsEdgeInFrom(int id);
 		void RemoveEdgesGoingTo(int id);
 		void RemoveEdgesComingFrom(int id);
-
+		void RemoveAllEdges();
 
 		int incoming_size() { return incoming_.size(); }
 		int outgoin_size() { return out_going_.size(); }
@@ -31,7 +31,7 @@ namespace ggraph
 	private:
 		std::vector<std::shared_ptr<Edge>> incoming_;
 		std::vector<std::shared_ptr<Edge>> out_going_;
-		int id_;
+		const int id_;
 	};
 
 }

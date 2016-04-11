@@ -1,8 +1,9 @@
 #include "stdafx.h"
 #include "node.h"
+#include <iostream>
 
 
-namespace ggraph {
+namespace directed {
 
 	Node::Node(int id): id_(id)
 	{
@@ -23,18 +24,11 @@ namespace ggraph {
 	{
 		for (auto edge_ptr : out_going_)
 		{
-			try
-			{
-				auto in_ptr = edge_ptr->in_.lock();
-				if (in_ptr->id_ = id)
-				{
-					return true;
-				}
+			std::cout << "comparing "<< edge_ptr->GetInId() << " to " << id << std::endl;
 
-			}
-			catch (std::bad_weak_ptr e)
+			if (edge_ptr->GetInId() == id)
 			{
-				// Handle removing this edge.
+				return true;
 			}
 		}
 
@@ -45,18 +39,11 @@ namespace ggraph {
 	{
 		for (auto edge_ptr : incoming_)
 		{
-			try
-			{
-				auto out_ptr = edge_ptr->out_.lock();
-				if (out_ptr->id_ = id)
-				{
-					return true;
-				}
+			std::cout << "comparing " << edge_ptr->GetOutId() << " to " << id << std::endl;
 
-			}
-			catch (std::bad_weak_ptr e)
+			if (edge_ptr->GetOutId() == id)
 			{
-				 // Handle removing this edge.
+				return true;
 			}
 		}
 
@@ -71,9 +58,35 @@ namespace ggraph {
 
 	void Node::RemoveEdgesComingFrom(int id)
 	{
-		auto search = std::remove_if(incoming_.begin(), incoming_.end(), [id](std::shared_ptr<Edge> edge_ptr) {return edge_ptr->GetInId() == id; });
+		auto search = std::remove_if(incoming_.begin(), incoming_.end(), [id](std::shared_ptr<Edge> edge_ptr) {return edge_ptr->GetInId() == id; });		
 		incoming_.erase(search, incoming_.end());
 	}
+
+	void Node::RemoveAllEdges()
+	{
+		std::shared_ptr<Node> node_p;
+
+		// Handle removing out going edges and neighbor nodes copies of those edges 
+		for (std::shared_ptr<Edge> edge_p : out_going_)
+		{
+			node_p = edge_p->GetIn();
+			if (node_p != nullptr)
+			{
+				node_p->RemoveEdgesComingFrom(id_);
+			}
+		}
+
+		// Handle removing incoming edges and neighbor nodes copies of those edges 
+		for (std::shared_ptr<Edge> edge_p : incoming_)
+		{
+			node_p = edge_p->GetOut();
+			if (node_p != nullptr)
+			{
+				node_p->RemoveEdgesGoingTo(id_);
+			}
+		}
+	}
+
 
 	Node::~Node()
 	{
