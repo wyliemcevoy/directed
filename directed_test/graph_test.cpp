@@ -2,13 +2,7 @@
 
 GraphTest::GraphTest()
 {
-	directed::Graph graph;
-
-	graph.AddNode(1);
-	graph.AddNode(2);
-
-	graph.AddEdge(1, 2);
-	graph.AddEdge(2, 1);
+	
 
 }
 
@@ -16,6 +10,21 @@ GraphTest::GraphTest()
 GraphTest::~GraphTest()
 {
 	
+}
+
+void GraphTest::SetUp()
+{
+
+	graph.AddNode(1);
+	graph.AddNode(2);
+
+	graph.AddEdge(1, 2);
+	graph.AddEdge(2, 1);
+}
+
+void GraphTest::TearDown()
+{
+
 }
 
 
@@ -27,6 +36,6 @@ TEST_F(GraphTest, contains_nodes)
 
 TEST_F(GraphTest, contains_edges)
 {
-	ASSERT_TRUE(graph.ContainsEdge(1,2));
-	ASSERT_TRUE(graph.ContainsEdge(2,1));
+	ASSERT_TRUE(graph.ContainsEdge(2, 1));
+	ASSERT_TRUE(graph.ContainsEdge(1, 2));
 }
