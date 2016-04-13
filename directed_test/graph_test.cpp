@@ -19,7 +19,14 @@ GraphTest::~GraphTest()
 }
 
 
-TEST_F(GraphTest, doesxyz)
+TEST_F(GraphTest, contains_nodes)
 {
-	ASSERT_EQ(1, 1);
+	ASSERT_TRUE(graph.ContainsNode(1));
+	ASSERT_TRUE(graph.ContainsNode(2));
+}
+
+TEST_F(GraphTest, contains_edges)
+{
+	ASSERT_TRUE(graph.ContainsEdge(1,2));
+	ASSERT_TRUE(graph.ContainsEdge(2,1));
 }
