@@ -2,6 +2,7 @@
 #include "graph.h"
 #include "edge.h"
 #include <memory>
+#include <iostream>
 
 
 namespace directed {
@@ -37,10 +38,10 @@ namespace directed {
 			std::shared_ptr<Node> in_ptr = get_node(in);
 			std::shared_ptr<Node> out_ptr = get_node(out);
 
-			std::shared_ptr<Edge> edge_ptr = std::make_shared<Edge>(out_ptr, in_ptr);
+			std::shared_ptr<Edge> edge_ptr = std::make_shared<Edge>(in_ptr, out_ptr);
 
-			in_ptr->AddIncoming(edge_ptr);
-			out_ptr->AddOutGoing(edge_ptr);
+			in_ptr->AddEdge(edge_ptr);
+			out_ptr->AddEdge(edge_ptr);
 			
 			return true;
 		}
@@ -84,7 +85,16 @@ namespace directed {
 
 	bool Graph::ContainsEdge(int out, int in)
 	{
-		return false;
+		if (ContainsNode(out) && ContainsNode(in))
+		{
+			std::shared_ptr<Node> in_ptr = get_node(in);
+			std::shared_ptr<Node> out_ptr = get_node(out);
+			bool inFromOut = in_ptr->ContainsEdgeInFrom(out);
+			bool outFromIn = out_ptr->ContainsEdgeOutTo(in);
+			return ( inFromOut && outFromIn );
+		}
+		else {return false;}
+		
 	}
 
 	std::shared_ptr<Node> Graph::get_node(int id)
