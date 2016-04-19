@@ -1,30 +1,20 @@
 #pragma once
 
-#include <unordered_map>
-#include "node.h"
-
-
 namespace directed
 {
 	class Graph
 	{
 	public:
 		Graph();
-		~Graph();
 
-		bool AddNode(int id);
-		bool AddEdge(int from, int to);
-		bool RemoveNode(int id);
-		bool RemoveEdge(int out, int in);
-		bool ContainsNode(int id);
-		bool ContainsEdge(int out, int in);
+		virtual bool AddNode(int id) = 0;
+		virtual bool AddEdge(int from, int to) = 0;
+		virtual bool RemoveNode(int id) = 0;
+		virtual bool RemoveEdge(int out, int in) = 0;
+		virtual bool ContainsNode(int id) = 0;
+		virtual bool ContainsEdge(int out, int in) = 0;
 
-	//private:
-		
-		std::shared_ptr<Node> get_node(int id);
-
-		std::unordered_map<int, std::shared_ptr<Node>> nodes_;
-
+		virtual ~Graph() = 0;
 	};
 
 }

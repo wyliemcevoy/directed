@@ -1,6 +1,6 @@
 #pragma once
 #include "gtest/gtest.h"
-#include "graph.h"
+#include "pointer_graph.h"
 
 class GraphTest : public ::testing::Test
 {
@@ -10,7 +10,7 @@ public:
 	void SetUp();
 	void TearDown();
 
-	directed::Graph graph;
+	directed::PointerGraph graph;
 
 };
 
