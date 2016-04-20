@@ -97,6 +97,11 @@ namespace directed {
 		
 	}
 
+	bool PointerGraph::ContainsPath(int from, int to)
+	{
+		return false;
+	}
+
 	std::shared_ptr<Node> PointerGraph::get_node(int id)
 	{
 		auto search = nodes_.find(id);

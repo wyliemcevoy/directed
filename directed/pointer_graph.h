@@ -18,6 +18,7 @@ namespace directed
 		bool RemoveEdge(int out, int in) override;
 		bool ContainsNode(int id) override;
 		bool ContainsEdge(int out, int in) override;
+		bool ContainsPath(int from, int to) override;
 
 	private:
 		std::shared_ptr<Node> get_node(int id);
