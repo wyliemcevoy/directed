@@ -13,6 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\MultiTree">
+      <UniqueIdentifier>{1f6859b2-a926-42fa-bd87-b21134435099}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MultiTree">
+      <UniqueIdentifier>{49fb1c90-99d4-43c1-85d3-50b02ccf36df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\AdjacencyList">
+      <UniqueIdentifier>{7314c657-4066-4e76-bde8-c83c61f68afe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\PointerGraph">
+      <UniqueIdentifier>{7e6a5bbf-6adf-4bc8-84aa-5c81fdab7eff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AdjacencyList">
+      <UniqueIdentifier>{24da9daf-9e80-46ae-9991-935f867d78aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\PointerGraph">
+      <UniqueIdentifier>{201a28be-87d1-422e-97a8-d682c8e1428d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -24,40 +42,64 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="edge.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="node.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="pointer_graph.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="graph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AdjacencyList.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="multi_tree.h">
+      <Filter>Header Files\MultiTree</Filter>
+    </ClInclude>
+    <ClInclude Include="adjacency_list.h">
+      <Filter>Header Files\AdjacencyList</Filter>
+    </ClInclude>
+    <ClInclude Include="node.h">
+      <Filter>Header Files\AdjacencyList</Filter>
+    </ClInclude>
+    <ClInclude Include="edge.h">
+      <Filter>Header Files\AdjacencyList</Filter>
+    </ClInclude>
+    <ClInclude Include="pointer_edge.h">
+      <Filter>Header Files\PointerGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="pointer_node.h">
+      <Filter>Header Files\PointerGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="pointer_graph.h">
+      <Filter>Header Files\PointerGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="mulit_tree_node.h">
+      <Filter>Header Files\MultiTree</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="edge.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="node.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="pointer_graph.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="graph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AdjacencyList.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="multi_tree.cpp">
+      <Filter>Source Files\MultiTree</Filter>
+    </ClCompile>
+    <ClCompile Include="edge.cpp">
+      <Filter>Source Files\AdjacencyList</Filter>
+    </ClCompile>
+    <ClCompile Include="node.cpp">
+      <Filter>Source Files\AdjacencyList</Filter>
+    </ClCompile>
+    <ClCompile Include="pointer_node.cpp">
+      <Filter>Source Files\PointerGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="pointer_graph.cpp">
+      <Filter>Source Files\PointerGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="adjacency_list.cpp">
+      <Filter>Source Files\AdjacencyList</Filter>
+    </ClCompile>
+    <ClCompile Include="pointer_edge.cpp">
+      <Filter>Source Files\PointerGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="mulit_tree_node.cpp">
+      <Filter>Source Files\MultiTree</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -145,20 +145,28 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AdjacencyList.h" />
+    <ClInclude Include="adjacency_list.h" />
     <ClInclude Include="edge.h" />
+    <ClInclude Include="mulit_tree_node.h" />
+    <ClInclude Include="multi_tree.h" />
+    <ClInclude Include="node.h" />
+    <ClInclude Include="pointer_edge.h" />
     <ClInclude Include="graph.h" />
     <ClInclude Include="pointer_graph.h" />
-    <ClInclude Include="node.h" />
+    <ClInclude Include="pointer_node.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AdjacencyList.cpp" />
+    <ClCompile Include="adjacency_list.cpp" />
     <ClCompile Include="edge.cpp" />
+    <ClCompile Include="mulit_tree_node.cpp" />
+    <ClCompile Include="multi_tree.cpp" />
+    <ClCompile Include="pointer_edge.cpp" />
     <ClCompile Include="graph.cpp" />
-    <ClCompile Include="pointer_graph.cpp" />
     <ClCompile Include="node.cpp" />
+    <ClCompile Include="pointer_graph.cpp" />
+    <ClCompile Include="pointer_node.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

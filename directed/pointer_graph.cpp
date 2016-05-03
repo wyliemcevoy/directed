@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "pointer_graph.h"
-#include "edge.h"
+
 #include <memory>
 #include <iostream>
 
@@ -24,7 +24,7 @@ namespace directed {
 		}
 		else
 		{
-			nodes_[id] = std::make_shared<Node>(id);
+			nodes_[id] = std::make_shared<PointerNode>(id);
 			return true;
 		}
 	}
@@ -35,10 +35,10 @@ namespace directed {
 		{
 
 			// this should probably be references instead of making new shared pointers
-			std::shared_ptr<Node> in_ptr = get_node(in);
-			std::shared_ptr<Node> out_ptr = get_node(out);
+			std::shared_ptr<PointerNode> in_ptr = get_node(in);
+			std::shared_ptr<PointerNode> out_ptr = get_node(out);
 
-			std::shared_ptr<Edge> edge_ptr = std::make_shared<Edge>(in_ptr, out_ptr);
+			std::shared_ptr<PointerEdge> edge_ptr = std::make_shared<PointerEdge>(in_ptr, out_ptr);
 
 			in_ptr->AddEdge(edge_ptr);
 			out_ptr->AddEdge(edge_ptr);
@@ -52,7 +52,7 @@ namespace directed {
 	{
 		if (ContainsNode(id))
 		{
-			std::shared_ptr<Node> to_be_removed = get_node(id);
+			std::shared_ptr<PointerNode> to_be_removed = get_node(id);
 			to_be_removed->RemoveAllEdges();
 			nodes_.erase(id);
 
@@ -66,8 +66,8 @@ namespace directed {
 	{
 		if (ContainsNode(out) && ContainsNode(in))
 		{
-			std::shared_ptr<Node> in_ptr = get_node(in);
-			std::shared_ptr<Node> out_ptr = get_node(out);
+			std::shared_ptr<PointerNode> in_ptr = get_node(in);
+			std::shared_ptr<PointerNode> out_ptr = get_node(out);
 
 			in_ptr->RemoveEdgesComingFrom(out);
 			out_ptr->RemoveEdgesGoingTo(in);
@@ -87,8 +87,8 @@ namespace directed {
 	{
 		if (ContainsNode(out) && ContainsNode(in))
 		{
-			std::shared_ptr<Node> in_ptr = get_node(in);
-			std::shared_ptr<Node> out_ptr = get_node(out);
+			std::shared_ptr<PointerNode> in_ptr = get_node(in);
+			std::shared_ptr<PointerNode> out_ptr = get_node(out);
 			bool inFromOut = in_ptr->ContainsEdgeInFrom(out);
 			bool outFromIn = out_ptr->ContainsEdgeOutTo(in);
 			return ( inFromOut && outFromIn );
@@ -102,7 +102,7 @@ namespace directed {
 		return false;
 	}
 
-	std::shared_ptr<Node> PointerGraph::get_node(int id)
+	std::shared_ptr<PointerNode> PointerGraph::get_node(int id)
 	{
 		auto search = nodes_.find(id);
 		if (search != nodes_.end())

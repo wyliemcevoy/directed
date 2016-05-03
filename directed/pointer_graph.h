@@ -1,7 +1,8 @@
 #pragma once
 
 #include <unordered_map>
-#include "node.h"
+#include "pointer_node.h"
+#include "pointer_edge.h"
 #include "graph.h"
 
 namespace directed
@@ -21,8 +22,8 @@ namespace directed
 		bool ContainsPath(int from, int to) override;
 
 	private:
-		std::shared_ptr<Node> get_node(int id);
-		std::unordered_map<int, std::shared_ptr<Node>> nodes_;
+		std::shared_ptr<PointerNode> get_node(int id);
+		std::unordered_map<int, std::shared_ptr<PointerNode>> nodes_;
 	};
 
 }
