@@ -1,8 +1,6 @@
 #pragma once
-class MultiTreeNode
-{
-public:
-	MultiTreeNode();
-	~MultiTreeNode();
-};
+#include <memory>
 
+namespace directed {
+
+}

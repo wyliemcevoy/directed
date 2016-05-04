@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="adjacency_list.h" />
+    <ClInclude Include="binary_treer.h" />
     <ClInclude Include="edge.h" />
     <ClInclude Include="mulit_tree_node.h" />
     <ClInclude Include="multi_tree.h" />
@@ -160,7 +161,6 @@
   <ItemGroup>
     <ClCompile Include="adjacency_list.cpp" />
     <ClCompile Include="edge.cpp" />
-    <ClCompile Include="mulit_tree_node.cpp" />
     <ClCompile Include="multi_tree.cpp" />
     <ClCompile Include="pointer_edge.cpp" />
     <ClCompile Include="graph.cpp" />

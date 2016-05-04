@@ -31,6 +31,9 @@
     <Filter Include="Source Files\PointerGraph">
       <UniqueIdentifier>{201a28be-87d1-422e-97a8-d682c8e1428d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\BinaryTree">
+      <UniqueIdentifier>{07886040-06e8-4382-866e-f875a9e5d7ba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -69,6 +72,9 @@
     <ClInclude Include="mulit_tree_node.h">
       <Filter>Header Files\MultiTree</Filter>
     </ClInclude>
+    <ClInclude Include="binary_treer.h">
+      <Filter>Header Files\BinaryTree</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -97,9 +103,6 @@
     </ClCompile>
     <ClCompile Include="pointer_edge.cpp">
       <Filter>Source Files\PointerGraph</Filter>
-    </ClCompile>
-    <ClCompile Include="mulit_tree_node.cpp">
-      <Filter>Source Files\MultiTree</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
