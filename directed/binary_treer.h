@@ -4,7 +4,7 @@
 namespace directed {
 
 	template <class T>
-	class BinaryNode
+	class BinaryTree
 	{
 		struct TreeNode;
 		stuct TreeNode{
@@ -14,16 +14,34 @@ namespace directed {
 			TreeNode(const T& data_in) :data(data_in), left(nullptr), right(nullptr) {};
 		};
 
+		void insert(const T & ref);
+
+
 	public:
-		MultiTreeNode()
+		BinaryTree():root_(nullptr)
 		{}
 
-		~MultiTreeNode() {}
+		~BinaryTree() {}
 
 
 
 	private:
-
+		std::unique_ptr<TreeNode> root_;
 	};
+
+
+	template<class T>
+	void BinaryTree<T>::insert(const T & ref)
+	{
+		std::unique_ptr<TreeNode> node_p(new TreeNode(ref));
+		if (root == nullptr)
+		{
+			root = std::move(node_p);
+		}
+		else {
+			
+		}
+	}
+
 
 }
