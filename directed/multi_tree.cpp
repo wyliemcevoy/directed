@@ -2,11 +2,14 @@
 #include "multi_tree.h"
 
 
-MultiTree::MultiTree()
-{
-}
+namespace directed {
+	template <class T>
+	MultiTree<T>::MultiTree()
+	{
+	}
 
-
-MultiTree::~MultiTree()
-{
+	template <class T>
+	MultiTree<T>::~MultiTree()
+	{
+	}
 }
