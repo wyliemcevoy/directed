@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include <iostream>
 
 namespace directed {
 
@@ -21,38 +22,56 @@ namespace directed {
 
 		~BinaryTree() {}
 
-        bool insert(const T & ref);
-		bool contains(const T & ref);
+        bool Insert(const T & ref);
+		bool Contains(const T & ref) const;
+		void print();
 
 	private:
 		std::unique_ptr<TreeNode> root_;
+		void print_recursive(std::unique_ptr<TreeNode> & node)
+		{
+			if (node != nullptr)
+			{
+				print_recursive(node->left);
+				std::cout << " " << node->data;
+				print_recursive(node->right);
+			}
+		}
 	};
 
 
 	template<class T>
-	bool BinaryTree<T>::insert(const T & ref)
+	bool BinaryTree<T>::Insert(const T & ref)
 	{
-		std::unique_ptr<TreeNode> node_p(new TreeNode(ref));
-		if (root_ == nullptr)
+		std::unique_ptrTreeNode> node = root_.get();
+		
+		while (node != nullptr)
 		{
-			root_ = std::move(node_p);
-		}
-		else {
-			
+			if (node->data < ref)
+			{
+				node = node->left;
+			}
+			else
+			{
+				node = node->right;
+			}
+			//node = (node->data < ref) ? node->left : node->right;
 		}
 
+		node = std::make_unique<TreeNode>(ref);
+	
 		return true;
 	}
 
 	template<class T>
-	void directed::contains(const T & ref)
+	bool BinaryTree<T>::Contains(const T & ref) const
 	{
 		if (root == nullptr)
 		{
 			return false;
 		}
 
-		std::unique_ptr<TreeNode<T>> & current_node = root;
+		std::unique_ptr<TreeNode<T>> & current_node = root_;
 		while (current_node != nullptr)
 		{
 			if (ref == current_node.data)
@@ -64,5 +83,11 @@ namespace directed {
 			}
 		}
 		return false;
+	}
+
+	template<class T>
+	void BinaryTree<T>::print()
+	{
+		print_recursive(root_);
 	}
 }
