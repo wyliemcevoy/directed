@@ -43,23 +43,40 @@ namespace directed {
 	template<class T>
 	bool BinaryTree<T>::Insert(const T & ref)
 	{
-		std::unique_ptrTreeNode> node = root_.get();
-		
-		while (node != nullptr)
+		if (root_ == nullptr)
 		{
-			if (node->data < ref)
-			{
-				node = node->left;
-			}
-			else
-			{
-				node = node->right;
-			}
-			//node = (node->data < ref) ? node->left : node->right;
+			root_ = std::make_unique<TreeNode>(ref);
 		}
+		else {
+			bool not_finished = true;
 
-		node = std::make_unique<TreeNode>(ref);
-	
+			TreeNode * node = root_.get();
+
+			while (not_finished)
+			{
+				if (node->data < ref)
+				{
+					if (node->left == nullptr) {
+						node->left = std::make_unique<TreeNode>(ref);
+						not_finished = false;
+					}
+					else {
+						node = node->left.get();
+					}
+				}
+				else
+				{
+					if (node->right == nullptr)
+					{
+						node->right = std::make_unique<TreeNode>(ref);
+						not_finished = false;
+					}
+					else {
+						node = node->right.get();
+					}
+				}
+			}
+		}
 		return true;
 	}
 
