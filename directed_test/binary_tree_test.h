@@ -9,6 +9,8 @@ public:
 	~BinaryTreeTest();
 	void SetUp();
 	void TearDown();
+	void BuildBalancedTree();
+	void BuildSkewedTree();
 
 	directed::BinaryTree<int> tree_;
 

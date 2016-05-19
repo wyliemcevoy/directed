@@ -5,6 +5,8 @@
 
 namespace directed {
 
+	// TODO: Height, LCA, preorder, postorder, Heapify
+
 	template <class T>
 	class BinaryTree
 	{
@@ -16,7 +18,6 @@ namespace directed {
 			TreeNode(const T& data_in) :data(data_in), left(nullptr), right(nullptr) {};
 		};
 
-
 	public:
 		BinaryTree():root_(nullptr)
 		{}
@@ -24,7 +25,7 @@ namespace directed {
 		~BinaryTree() {}
 
         bool Insert(const T & ref);
-		bool Contains(const T & ref) const;
+		bool Contains(const T & ref);
 		void print();
 		int GetHeight();
 
@@ -41,17 +42,33 @@ namespace directed {
 			}
 		}
 
-		void print_recursive(std::unique_ptr<TreeNode> & node)
+		bool RecursiveContains(TreeNode * node, const T & target)
+		{
+			if (node == nullptr)
+			{
+				return false;
+			}
+			else {
+				if (node->data == target)
+				{
+					return true;
+				}
+				else {
+					return RecursiveContains(node->left.get(), target) || RecursiveContains(node->right.get(), target);
+				}
+			}
+		}
+
+		void RecursivePrint(std::unique_ptr<TreeNode> & node)
 		{
 			if (node != nullptr)
 			{
-				print_recursive(node->left);
+				RecursivePrint(node->left);
 				std::cout << " " << node->data;
-				print_recursive(node->right);
+				RecursivePrint(node->right);
 			}
 		}
 	};
-
 
 	template<class T>
 	int BinaryTree<T>::GetHeight()
@@ -62,6 +79,7 @@ namespace directed {
 	template<class T>
 	bool BinaryTree<T>::Insert(const T & ref)
 	{
+		// Handle empty tree
 		if (root_ == nullptr)
 		{
 			root_ = std::make_unique<TreeNode>(ref);
@@ -73,6 +91,7 @@ namespace directed {
 
 			while (not_finished)
 			{
+				// guarenteed node not null
 				if (node->data < ref)
 				{
 					if (node->left == nullptr) {
@@ -100,30 +119,21 @@ namespace directed {
 	}
 
 	template<class T>
-	bool BinaryTree<T>::Contains(const T & ref) const
+	bool BinaryTree<T>::Contains(const T & target)
 	{
-		if (root == nullptr)
+		// Empty tree check
+		if (root_ == nullptr)
 		{
 			return false;
 		}
-
-		std::unique_ptr<TreeNode<T>> & current_node = root_;
-		while (current_node != nullptr)
-		{
-			if (ref == current_node.data)
-			{
-				return true;
-			}
-			else {
-				current_node = (current_node.data < ref) ? current_node.left : current_node.right;
-			}
+		else {
+			return RecursiveContains(root_.get(), target);
 		}
-		return false;
 	}
 
 	template<class T>
 	void BinaryTree<T>::print()
 	{
-		print_recursive(root_);
+		RecursivePrint(root_);
 	}
 }
