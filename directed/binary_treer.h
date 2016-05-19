@@ -25,9 +25,21 @@ namespace directed {
         bool Insert(const T & ref);
 		bool Contains(const T & ref) const;
 		void print();
+		int GetHeight();
 
 	private:
 		std::unique_ptr<TreeNode> root_;
+		int RecursiveHeight(TreeNode * node)
+		{
+			if (node == nullptr)
+			{
+				return 0;
+			}
+			else {
+				return 1 + max(RecursiveHeight(node->left.get()), RecursiveHeight(node->right.get()));
+			}
+		}
+
 		void print_recursive(std::unique_ptr<TreeNode> & node)
 		{
 			if (node != nullptr)
@@ -39,6 +51,12 @@ namespace directed {
 		}
 	};
 
+
+	template<class T>
+	int BinaryTree<T>::GetHeight()
+	{
+		return RecursiveHeight(root_.get());
+	}
 
 	template<class T>
 	bool BinaryTree<T>::Insert(const T & ref)
