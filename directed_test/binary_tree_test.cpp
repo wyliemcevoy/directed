@@ -37,8 +37,17 @@ TEST_F(BinaryTreeTest, correct_flatten)
 	ASSERT_TRUE(tree_.Insert(11));
 	ASSERT_TRUE(tree_.Insert(8));
 	ASSERT_TRUE(tree_.Insert(2));
-
 	tree_.print();
-
 }
 
+TEST_F(BinaryTreeTest, correct_depth)
+{
+	ASSERT_TRUE(tree_.Insert(10));
+	ASSERT_TRUE(tree_.Insert(5));
+	ASSERT_TRUE(tree_.Insert(15));
+	ASSERT_TRUE(tree_.Insert(17));
+	ASSERT_TRUE(tree_.Insert(11));
+	ASSERT_TRUE(tree_.Insert(8));
+	ASSERT_TRUE(tree_.Insert(2));
+	ASSERT_EQ(tree_.GetHeight(), 3);
+}

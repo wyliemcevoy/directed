@@ -1,6 +1,7 @@
 #pragma once
 #include <memory>
 #include <iostream>
+#include <algorithm>
 
 namespace directed {
 
@@ -36,7 +37,7 @@ namespace directed {
 				return 0;
 			}
 			else {
-				return 1 + max(RecursiveHeight(node->left.get()), RecursiveHeight(node->right.get()));
+				return 1 + std::max(RecursiveHeight(node->left.get()), RecursiveHeight(node->right.get()));
 			}
 		}
 
