@@ -3,6 +3,7 @@
 
 #include "gtest/gtest.h"
 #include "linked_list.h"
+#include <memory>
 
 
 class LinkedListTest : public ::testing::Test
@@ -17,6 +18,8 @@ public:
 
 	directed::LinkedListNode<int> * list_;
 
+private:
+	std::vector<std::unique_ptr<directed::LinkedListNode<int>>>  node_handles_;
 };
 
 

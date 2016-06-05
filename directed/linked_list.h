@@ -10,9 +10,6 @@ namespace directed
 	public:
 		LinkedListNode(const T & data) : next_(nullptr), data_(data) {}
 		~LinkedListNode() {
-			if (HasNext()) {
-				delete(next_);
-			}
 		}
 
 		LinkedListNode * GetNext() const { return next_; }
@@ -45,12 +42,33 @@ namespace directed
 			}
 		}
 
+		bool AddNodeToTail(LinkedListNode * node, int max_depth)
+		{
+			LinkedListNode * current = this;
+			int count = 0;
+			while (current->HasNext() && count < max_depth)
+			{
+				count++;
+				current = current->GetNext();
+			}
+
+			if (count < max_depth)
+			{
+				current->SetNext(node);
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
 		bool ContainsCycle()
 		{
 			LinkedListNode * single_jump = this;
 			LinkedListNode * double_jump = this;
 
-			while (double_jump->HasNext() && double_jump->GetNext()->HasNext())
+			while (double_jump != nullptr && double_jump->HasNext() && double_jump->GetNext()->HasNext())
 			{
 				single_jump = single_jump->GetNext();
 				double_jump = double_jump->GetNext()->GetNext();

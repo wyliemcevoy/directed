@@ -10,7 +10,7 @@ int main(int argc, char **argv)
 	RUN_ALL_TESTS();
 
 
-	std::cout << std::endl << "Press any key to exit ..." << std::endl;
+	std::cout << std::endl << "Press enter to exit ..." << std::endl;
 	std::cin.get();
 	return 0;
 }

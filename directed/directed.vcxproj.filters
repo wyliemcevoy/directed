@@ -72,11 +72,11 @@
     <ClInclude Include="mulit_tree_node.h">
       <Filter>Header Files\MultiTree</Filter>
     </ClInclude>
-    <ClInclude Include="binary_treer.h">
-      <Filter>Header Files\BinaryTree</Filter>
-    </ClInclude>
     <ClInclude Include="linked_list.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="binary_tree.h">
+      <Filter>Header Files\BinaryTree</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

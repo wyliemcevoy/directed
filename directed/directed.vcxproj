@@ -146,7 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="adjacency_list.h" />
-    <ClInclude Include="binary_treer.h" />
+    <ClInclude Include="binary_tree.h" />
     <ClInclude Include="edge.h" />
     <ClInclude Include="linked_list.h" />
     <ClInclude Include="mulit_tree_node.h" />
