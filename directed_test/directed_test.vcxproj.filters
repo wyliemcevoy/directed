@@ -30,6 +30,9 @@
     <ClInclude Include="binary_tree_test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="linked_list_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -48,6 +51,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="binary_tree_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="linked_list_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

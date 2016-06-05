@@ -75,6 +75,9 @@
     <ClInclude Include="binary_treer.h">
       <Filter>Header Files\BinaryTree</Filter>
     </ClInclude>
+    <ClInclude Include="linked_list.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
