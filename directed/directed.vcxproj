@@ -145,6 +145,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdjacencyListGraph.h" />
     <ClInclude Include="adjacency_list.h" />
     <ClInclude Include="binary_tree.h" />
     <ClInclude Include="edge.h" />

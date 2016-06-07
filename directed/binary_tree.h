@@ -5,8 +5,6 @@
 
 namespace directed {
 
-	// TODO: LCA
-
 	template <class T>
 	class BinaryTree
 	{
