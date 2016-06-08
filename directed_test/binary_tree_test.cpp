@@ -105,13 +105,25 @@ TEST_F(BinaryTreeTest, inorder)
 	BuildBalancedTree();
 	int inorder[] = {2,5,8,10,11,15,17};
 
+
 	std::vector<int> ordered = tree_.Inorder();
 
 	for (int i = 0; i < 7; i++)
 	{
 		ASSERT_EQ(ordered[i], inorder[i]);
 	}
+}
 
+
+TEST_F(BinaryTreeTest, lowest_common_ancestor_slow)
+{
+	BuildBalancedTree();
+
+	ASSERT_EQ( tree_.GetLowestCommonAncestor(2,8), 5);
+	ASSERT_EQ(tree_.GetLowestCommonAncestor(11, 17), 15);
+	ASSERT_EQ(tree_.GetLowestCommonAncestor(2, 17), 10);
+	ASSERT_EQ(tree_.GetLowestCommonAncestor(2, 10), 10);
+	ASSERT_EQ(tree_.GetLowestCommonAncestor(17, 15), 15);
 }
 
 

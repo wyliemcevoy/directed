@@ -80,6 +80,8 @@
     </ClInclude>
     <ClInclude Include="ancestor_tree.h">
       <Filter>Header Files\BinaryTree</Filter>
+    <ClInclude Include="AdjacencyListGraph.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
