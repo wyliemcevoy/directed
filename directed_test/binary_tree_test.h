@@ -1,6 +1,6 @@
 #pragma once
 #include "gtest/gtest.h"
-#include "binary_treE.h"
+#include "binary_tree.h"
 
 class BinaryTreeTest : public ::testing::Test
 {

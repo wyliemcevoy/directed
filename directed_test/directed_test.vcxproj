@@ -150,6 +150,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ancestor_tree_test.h" />
     <ClInclude Include="binary_tree_test.h" />
     <ClInclude Include="graph_test.h" />
     <ClInclude Include="linked_list_test.h" />
@@ -157,6 +158,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ancestor_tree_test.cpp" />
     <ClCompile Include="binary_tree_test.cpp" />
     <ClCompile Include="directed_test.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>

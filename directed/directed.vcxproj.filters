@@ -78,6 +78,9 @@
     <ClInclude Include="binary_tree.h">
       <Filter>Header Files\BinaryTree</Filter>
     </ClInclude>
+    <ClInclude Include="ancestor_tree.h">
+      <Filter>Header Files\BinaryTree</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

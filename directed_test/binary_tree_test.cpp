@@ -114,3 +114,14 @@ TEST_F(BinaryTreeTest, inorder)
 
 }
 
+
+TEST_F(BinaryTreeTest, lowest_common_ancestor_slow)
+{
+	BuildBalancedTree();
+
+	int ancestor = tree_.GetLowestCommonAncestor(2, 10);
+
+
+	std::cout << ancestor << std::endl;
+}
+

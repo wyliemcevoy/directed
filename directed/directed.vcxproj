@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="adjacency_list.h" />
+    <ClInclude Include="ancestor_tree.h" />
     <ClInclude Include="binary_tree.h" />
     <ClInclude Include="edge.h" />
     <ClInclude Include="linked_list.h" />
