@@ -126,14 +126,3 @@ TEST_F(BinaryTreeTest, lowest_common_ancestor_slow)
 	ASSERT_EQ(tree_.GetLowestCommonAncestor(17, 15), 15);
 }
 
-
-TEST_F(BinaryTreeTest, lowest_common_ancestor_slow)
-{
-	BuildBalancedTree();
-
-	int ancestor = tree_.GetLowestCommonAncestor(2, 10);
-
-
-	std::cout << ancestor << std::endl;
-}
-

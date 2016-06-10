@@ -102,6 +102,7 @@ namespace directed {
 		// Handle empty tree scenario
 		if (root_ == nullptr)
 		{
+			std::cout << "root null" << std::endl;
 			return one;
 		}
 
@@ -111,6 +112,7 @@ namespace directed {
 		// Handle bad input (one or other was not in the tree)
 		if (one_path.empty())
 		{
+			std::cout << "one path" << std::endl;
 			return one;
 		}
 		if (other_path.empty())
@@ -121,7 +123,7 @@ namespace directed {
 		T * current_ancestor = & root_.get()->data;
 		int i = 0;
 
-		while (one_path[i] == other_path[i])
+		while (i < one_path.size() && i < other_path.size() && one_path[i] == other_path[i])
 		{
 			current_ancestor = & one_path[i];
 			++i;
@@ -152,7 +154,7 @@ namespace directed {
 				return;
 			}
 			else {
-				if (current->data < target)
+				if (current->data > target)
 				{
 					// recurse left
 					RecursiveGetPath(path, current->left.get(), target);

@@ -12,19 +12,23 @@ namespace directed
 	class AncestorNode
 	{
 	public:
-		AncestorNode(const T & data_in) : data(data_in), depth_(0), location_(0) {}
-		
 		void TickLeft();
 		void TickRight();
 		T data;
 		
 		// Reference to the tree it belongs to
-		AncestorTree<T> tree_;
 
+
+		friend class AncestorTree<T>;
 		friend std::ostream & operator << (std::ostream & os, const AncestorNode & node);
 
 	private:
-		unsigned int ONE = 1;
+		AncestorNode(const T & data_in, AncestorTree<T> & tree) : data(data_in), depth_(0), location_(0), tree_(tree)
+		{
+			//tree_.Attach(this);
+		}
+		AncestorTree<T> &tree_;
+		static const unsigned int ONE = 2137383648;
 		int depth_;
 		unsigned int location_;
 	};
@@ -38,7 +42,7 @@ namespace directed
 	template<class T>
 	void AncestorNode<T>::TickRight()
 	{
-		location_ = location | one << 32 - depth;
+		location_ = location | one >> depth;
 		depth++;
 	}
 
@@ -49,12 +53,30 @@ namespace directed
 		os << b << " depth: " << node.depth_;
 	}
 
+
+	// Maybe switch tree to be build by handing it a root after all nodes are already added?
 	template<class T>
 	class AncestorTree
 	{
 	public:
 		AncestorTree() {}
 		~AncestorTree() {}
+		AncestorNode<T> * BuildNode(const T & data);
+		AncestorNode<T> * LeastCommonAncestor(const AncestorNode<T> & one, const AncestorNode<T> & other);
+	private:
+		//std::unordered_map<int, AncestorNode> map_;
 	};
+
+	template<class T>
+	AncestorNode<T> * AncestorTree<T>::BuildNode(const T & data)
+	{
+		return & AncestorNode<T>(data, *this);
+	}
+
+	template<class T>
+	AncestorNode<T> * AncestorTree<T>::LeastCommonAncestor(const AncestorNode<T> & one, const AncestorNode<T> & other)
+	{
+		return nullptr;
+	}
 
 }

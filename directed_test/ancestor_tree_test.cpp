@@ -22,8 +22,10 @@ AncestorTreeTest::~AncestorTreeTest()
 
 TEST_F(AncestorTreeTest, add_node)
 {
-	directed::AncestorNode<int> node(1);
 
+	directed::AncestorTree<int> tree;
+	directed::AncestorNode<int> * node_1 = tree.BuildNode(1);
+	directed::AncestorNode<int> * node_2 = tree.BuildNode(2);
 
 	ASSERT_TRUE(true);
 }
