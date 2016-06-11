@@ -1,12 +1,11 @@
 #pragma once
-
 #include <bitset>
 
 namespace directed
 {
 
 	template<class T>
-	class AncestorTree; // Forward declare so Ancestor Node can have a refference to it
+	class AncestorTree;
 
 	template<class T>
 	class AncestorNode
@@ -14,24 +13,55 @@ namespace directed
 	public:
 		void TickLeft();
 		void TickRight();
+
 		T data;
 		
-		// Reference to the tree it belongs to
-
-
 		friend class AncestorTree<T>;
 		friend std::ostream & operator << (std::ostream & os, const AncestorNode & node);
+		
+		bool HasLeftChild() const { return left != nullptr; }
+		bool HasRightChild() const { return right != nullptr; }
+
+		AncestorNode<T> GetLeft() const { return left_; }
+		AncestorNode<T> GetRight() const { return right_; }
+
+		// Alternatively you could recursively travel down left and it's children to preprocess for LCA computations.
+		// This would be an O(log(n)) opperation on each addition to the tree. As opposed to a O(n) preprocessing once.
+		void SetLeft(AncestorNode<T> left);
+
+		// Alternatively you could recursively travel down right and it's children to preprocess for LCA computations.
+		// This would be an O(log(n)) opperation on each addition to the tree. As opposed to a O(n) preprocessing once.
+		void SetRight(AncestorNode<T> right);
 
 	private:
 		AncestorNode(const T & data_in, AncestorTree<T> & tree) : data(data_in), depth_(0), location_(0), tree_(tree)
 		{
 			//tree_.Attach(this);
 		}
+		AncestorNode * left_;
+		AncestorNode * right_;
 		AncestorTree<T> &tree_;
+
+		// 32 bit int with 1 in leftmost position binary of :
+		// 1000 0000 0000 0000 0000 0000 0000 0000
 		static const unsigned int ONE = 2137383648;
 		int depth_;
 		unsigned int location_;
 	};
+
+	template <class T>
+	void AncestorNode<T>::SetLeft(AncestorNode<T> left)
+	{
+		left_ = left;
+		tree_.InvalidatePreprocessing();
+	}
+
+	template <class T>
+	void AncestorNode<T>::SetRight(AncestorNode<T> right)
+	{
+		right_ = right;
+		tree_.InvalidatePreprocessing();
+	}
 
 	template<class T>
 	void AncestorNode<T>::TickLeft()
@@ -53,29 +83,37 @@ namespace directed
 		os << b << " depth: " << node.depth_;
 	}
 
-
-	// Maybe switch tree to be build by handing it a root after all nodes are already added?
 	template<class T>
 	class AncestorTree
 	{
 	public:
-		AncestorTree() {}
+		AncestorTree() : preprocessing_valid_(false) {}
 		~AncestorTree() {}
+		void SetRoot(AncestorNode<T> * root) { root_ = root; }
+
 		AncestorNode<T> * BuildNode(const T & data);
-		AncestorNode<T> * LeastCommonAncestor(const AncestorNode<T> & one, const AncestorNode<T> & other);
+		AncestorNode<T> * LeastCommonAncestor(const AncestorNode<T> * one, const AncestorNode<T> * other) const;
+
+		void InvalidatePreprocessing() const { preprocessing_valid_ = false; }
 	private:
-		//std::unordered_map<int, AncestorNode> map_;
+		AncestorNode<T> * root_;
+		mutable bool preprocessing_valid_;
 	};
 
 	template<class T>
 	AncestorNode<T> * AncestorTree<T>::BuildNode(const T & data)
 	{
-		return & AncestorNode<T>(data, *this);
+		return &AncestorNode<T>(data, *this);
 	}
 
 	template<class T>
-	AncestorNode<T> * AncestorTree<T>::LeastCommonAncestor(const AncestorNode<T> & one, const AncestorNode<T> & other)
+	AncestorNode<T> * AncestorTree<T>::LeastCommonAncestor(const AncestorNode<T> * one, const AncestorNode<T> * other) const
 	{
+		if (one == nullptr || other == nullptr)
+		{
+			return nullptr;
+		}
+
 		return nullptr;
 	}
 
