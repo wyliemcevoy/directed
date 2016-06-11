@@ -5,8 +5,6 @@
 
 namespace directed {
 
-	// TODO: LCA
-
 	template <class T>
 	class BinaryTree
 	{
@@ -44,8 +42,6 @@ namespace directed {
 		static void RecursiveInorder(std::vector<T> * build, TreeNode * node);
 		static void RecursiveGetPath(std::vector<T> * path, TreeNode * current, const T & target);
 		std::vector<T> GetPath(const T & target);
-
-
 	};
 
 	template<class T>
