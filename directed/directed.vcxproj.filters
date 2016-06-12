@@ -1,116 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Header Files\MultiTree">
-      <UniqueIdentifier>{1f6859b2-a926-42fa-bd87-b21134435099}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\MultiTree">
-      <UniqueIdentifier>{49fb1c90-99d4-43c1-85d3-50b02ccf36df}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\AdjacencyList">
-      <UniqueIdentifier>{7314c657-4066-4e76-bde8-c83c61f68afe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\PointerGraph">
-      <UniqueIdentifier>{7e6a5bbf-6adf-4bc8-84aa-5c81fdab7eff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\AdjacencyList">
-      <UniqueIdentifier>{24da9daf-9e80-46ae-9991-935f867d78aa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\PointerGraph">
-      <UniqueIdentifier>{201a28be-87d1-422e-97a8-d682c8e1428d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\BinaryTree">
-      <UniqueIdentifier>{07886040-06e8-4382-866e-f875a9e5d7ba}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="adjacency_list.cpp" />
+    <ClCompile Include="edge.cpp" />
+    <ClCompile Include="pointer_edge.cpp" />
+    <ClCompile Include="graph.cpp" />
+    <ClCompile Include="node.cpp" />
+    <ClCompile Include="pointer_graph.cpp" />
+    <ClCompile Include="pointer_node.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AdjacencyListGraph.h" />
+    <ClInclude Include="adjacency_list.h" />
+    <ClInclude Include="ancestor_tree.h" />
+    <ClInclude Include="binary_tree.h" />
+    <ClInclude Include="edge.h" />
+    <ClInclude Include="linked_list.h" />
+    <ClInclude Include="node.h" />
+    <ClInclude Include="pointer_edge.h" />
+    <ClInclude Include="graph.h" />
+    <ClInclude Include="pointer_graph.h" />
+    <ClInclude Include="pointer_node.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="graph.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="multi_tree.h">
-      <Filter>Header Files\MultiTree</Filter>
-    </ClInclude>
-    <ClInclude Include="adjacency_list.h">
-      <Filter>Header Files\AdjacencyList</Filter>
-    </ClInclude>
-    <ClInclude Include="node.h">
-      <Filter>Header Files\AdjacencyList</Filter>
-    </ClInclude>
-    <ClInclude Include="edge.h">
-      <Filter>Header Files\AdjacencyList</Filter>
-    </ClInclude>
-    <ClInclude Include="pointer_edge.h">
-      <Filter>Header Files\PointerGraph</Filter>
-    </ClInclude>
-    <ClInclude Include="pointer_node.h">
-      <Filter>Header Files\PointerGraph</Filter>
-    </ClInclude>
-    <ClInclude Include="pointer_graph.h">
-      <Filter>Header Files\PointerGraph</Filter>
-    </ClInclude>
-    <ClInclude Include="mulit_tree_node.h">
-      <Filter>Header Files\MultiTree</Filter>
-    </ClInclude>
-    <ClInclude Include="linked_list.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="binary_tree.h">
-      <Filter>Header Files\BinaryTree</Filter>
-    </ClInclude>
-    <ClInclude Include="ancestor_tree.h">
-      <Filter>Header Files\BinaryTree</Filter>
-    <ClInclude Include="AdjacencyListGraph.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="graph.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="multi_tree.cpp">
-      <Filter>Source Files\MultiTree</Filter>
-    </ClCompile>
-    <ClCompile Include="edge.cpp">
-      <Filter>Source Files\AdjacencyList</Filter>
-    </ClCompile>
-    <ClCompile Include="node.cpp">
-      <Filter>Source Files\AdjacencyList</Filter>
-    </ClCompile>
-    <ClCompile Include="pointer_node.cpp">
-      <Filter>Source Files\PointerGraph</Filter>
-    </ClCompile>
-    <ClCompile Include="pointer_graph.cpp">
-      <Filter>Source Files\PointerGraph</Filter>
-    </ClCompile>
-    <ClCompile Include="adjacency_list.cpp">
-      <Filter>Source Files\AdjacencyList</Filter>
-    </ClCompile>
-    <ClCompile Include="pointer_edge.cpp">
-      <Filter>Source Files\PointerGraph</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
