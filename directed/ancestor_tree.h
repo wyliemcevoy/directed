@@ -21,8 +21,6 @@ namespace directed
 		T data;
 		
 		
-		friend std::ostream & operator << (std::ostream & os, const AncestorNode & node);
-		
 		bool HasLeftChild() const { return left_ != nullptr; }
 		bool HasRightChild() const { return right_ != nullptr; }
 
@@ -39,6 +37,9 @@ namespace directed
 		
 		// Tight coupling between node and tree to ensure encapsulation of preprocessing data
 		friend class AncestorTree<T>;
+
+		// overload << to stream a node to an ostream 
+		friend std::ostream & operator << (std::ostream & os, const AncestorNode & node);
 
 	private:
 		AncestorNode(const T & data_in, AncestorTree<T> & tree) : data(data_in), depth_(0), location_(0), tree_(tree), is_connected_to_root_(false), left_(nullptr), right_(nullptr) {}
@@ -203,10 +204,6 @@ namespace directed
 
 			return map_[key];
 		}
-
-
-
-
 
 		return nullptr;
 	}
