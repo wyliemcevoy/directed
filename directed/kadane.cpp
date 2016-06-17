@@ -2,15 +2,6 @@
 #include "kadane.h"
 
 
-Kadane::Kadane()
-{
-}
-
-
-Kadane::~Kadane()
-{
-}
-
 namespace puzzles
 {
 	int puzzles::ExplainedKadane(const std::vector<int>& data)
@@ -49,9 +40,6 @@ namespace puzzles
 			best_streak = std::max(best_streak, current_streak);
 			++index;
 		}
-
-
-
 		return best_streak;
 	}
 }

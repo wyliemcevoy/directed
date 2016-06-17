@@ -150,6 +150,8 @@
     <ClInclude Include="binary_tree.h" />
     <ClInclude Include="kadane.h" />
     <ClInclude Include="linked_list.h" />
+    <ClInclude Include="majority_element.h" />
+    <ClInclude Include="plateau.h" />
     <ClInclude Include="pointer_edge.h" />
     <ClInclude Include="graph.h" />
     <ClInclude Include="pointer_graph.h" />

@@ -20,6 +20,8 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="kadane.h" />
+    <ClInclude Include="majority_element.h" />
+    <ClInclude Include="plateau.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
