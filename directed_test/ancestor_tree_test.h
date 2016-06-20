@@ -14,3 +14,4 @@ public:
 	directed::AncestorTree<int> tree_;
 };
 
+
