@@ -148,9 +148,7 @@
     <ClInclude Include="AdjacencyListGraph.h" />
     <ClInclude Include="ancestor_tree.h" />
     <ClInclude Include="binary_tree.h" />
-    <ClInclude Include="kadane.h" />
     <ClInclude Include="linked_list.h" />
-    <ClInclude Include="majority_element.h" />
     <ClInclude Include="plateau.h" />
     <ClInclude Include="pointer_edge.h" />
     <ClInclude Include="graph.h" />
@@ -160,7 +158,6 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="kadane.cpp" />
     <ClCompile Include="pointer_edge.cpp" />
     <ClCompile Include="graph.cpp" />
     <ClCompile Include="pointer_graph.cpp" />
